@@ -1,0 +1,900 @@
+/* _________________________________________________
+02 eCards
+Author: MiyoMint
+Based on 320 and Up boilerplate extension (http:/*stuffandnonsense.co.uk/projects/320andup/) 
+by Andy Clarke http:/*about.me/malarkey | Version: 2 | License: http:/*creativecommons.org/licenses/MIT/
+_____________________________________________________
+
+1 ROOT
+2 HEADINGS
+3 TYPOGRAPHY
+4 LINKS
+5 FIGURES & IMAGES
+6 TABLES
+7 FORMS
+8 BANNER
+9 NAVIGATION
+10 CONTENT
+11 MAIN
+12 COMPLEMENTARY
+13 CONTENTINFO
+14 GLOBAL OBJECTS
+15 VENDOR-SPECIFIC 
+16 MODERNIZR
+17 TEMPLATE SPECIFICS
+18 MEDIA QUERIES
+
+COLOURS 
+
+*/
+
+
+@blue:#0c3c73;
+@lightBlue:lighten(@blue,30);
+@red:#b30600;
+@deepRed:darken(@red,30);
+
+@darkGrey:#494949;
+@lightGrey:#e6e6e6;
+@white: #fff;
+
+@import 'mixins';
+
+html, body { background: #fff; margin : 0; padding : 0; height: 100%; }
+
+h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, cite, code, del, dfn, em, img, q, s, samp, small, strike, strong, sub, sup, tt, var, dd, dl, dt, li, ol, ul, fieldset, form, label, legend, button, table, caption, tbody, tfoot, thead, tr, th, td { margin : 0; padding : 0; border : 0; font-weight : 300; font-style : normal; font-size : 100%; line-height : 1; font-family : inherit; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { 
+display : block; }
+
+audio[controls], canvas, video { .inline-block; }
+
+
+table {
+white-space: normal;
+line-height: normal;
+font-weight: normal;
+font-size: medium;
+font-variant: normal;
+font-style: normal;
+color: -webkit-text;
+text-align: start;
+}
+
+
+/* 1. ROOT*/
+
+html {
+	overflow-y: scroll; overflow-x: hidden; min-width: 280px;
+	font-size: 62.5%; background: #fff url(../img/bg.jpg) repeat-x; overflow-y: visible;
+}
+
+body {
+	padding : 0;.font-size(); .verdana; 
+}
+
+#container { background: #fff url(../img/bg.jpg) repeat-x;
+  #wrapper {
+	width: 1080px; margin : 0 auto; position: relative; overflow: hidden;
+  }
+}
+
+header[role='banner'] { padding-top: 24px;
+  .logo { 
+	width: 59px; height: 57px; padding: 0 37px 24px; margin: 0;
+	a { display: block; }
+  }
+	#hero { height: 365px; position: relative; background: url(../img/bg-inner.jpg) repeat-x; padding: 0 37px;
+	h1 { font-size:71px; float: left; padding: 54px 0 0; color: white; }
+	.duck { position: absolute; left: 478px; top: 43px; }
+  }
+}
+
+.btn { 
+	.inline-block; background: url(../img/btn_x.jpg) repeat-x 0% 0%; padding: 6px 35px; .rounded(4px); 
+	text-decoration: none; color: #fff !important; .font-size(12); line-height: 1.1em; border: none; outline: 0;
+	&:hover, &:focus, &.active {
+		background-position: 0% 100%; color: #bfc5cc !important;
+	}
+}
+
+#main { 
+  position: relative; padding: 0 0 50px; 
+  #stepsNav { position: absolute; right: 30px; top: 30px; z-index: 99;
+	nav { padding: 0px; text-align: center; float: right;
+	  ul { margin: 0; }
+	  li { letter-spacing: normal; .inline-block; float: none; .rounded(4px);
+		a { .btn; .btn.active; }
+		&.active { a { .btn; }  }
+	  }
+	}
+  }
+}
+
+.stepContainer { background: #fff; overflow: visible; white-space: nowrap; position: relative; letter-spacing: -6px;
+  .step { position: relative; .inline-block; vertical-align: top; width: 100%; background: #fff; white-space: normal; letter-spacing: normal;
+	.inner { position: relative; padding: 30px; clear:both; min-height: 610px;
+		.heading {color: #88ccff; font-size: 30px; font-weight: bold; }
+
+		.left { width: 400px; margin-bottom: 20px; }
+
+		.ecardContainer { overflow: hidden; min-height: 610px; 
+			.flex-direction-nav { .hide; }
+		}
+
+		.cardPreview { width: 580px; height: 610px; position: absolute; right: 30px; top: 80px; 
+			border: 2px solid @lightGrey;
+			.wrap { position: relative; }
+			.usereCard { width: 580px; height: 610px; } 
+		}
+
+		#ecardOptions {
+			.slides { letter-spacing: 10px; 
+				li { 
+					cursor: pointer; letter-spacing: normal; float: none !important; .inline-block; vertical-align: top; border: 2px solid @lightGrey;
+					&.flex-active-slide { cursor: default; border-color: @lightBlue; } 
+				}
+			}
+		}
+
+	}
+
+	&#ecardView {
+		.left, .cardPreview { position: static; margin: 0 auto; }
+	}
+
+	&#step-2 {
+		#imgUpload { background: #5aade1; padding: 5px; width: 340px; .rounded(4px); text-transform: uppercase; font-weight: bold; color:white; }
+		#userImg { max-width: 350px; }
+	}
+
+	&#step-3 {
+		label { .inline-block; vertical-align: top; color: @blue; font-size: 14px; line-height: 30px; width: 49%; 
+			input { background: none; border: 2px solid @lightGrey; line-height: 25px; width: 95%; }
+			&.error {
+				input { border-color: @deepRed; }
+			}
+			&.wide { width: 102.5%; }
+		}
+	}
+  }
+}
+
+#preview-pane { display: inline-block; position: absolute; z-index: 2000; background-color: white; 
+  .preview-container { overflow: hidden; }
+}
+
+#share { 
+	padding-bottom: 10px; text-align: center; letter-spacing: 20px; white-space: nowrap; width: 580px;
+	.at300b, .facebook_share {
+		float: none !important; text-align: left; letter-spacing: normal; white-space: normal;
+		.inline-block; vertical-align: top; margin: 0 !important; min-width: 105px; position: relative; right: -30px;
+	}
+}
+
+.facebook_share {
+	background: url(../img/fb_share.png) no-repeat;
+	height:21px;
+	width: 61px;
+	cursor: pointer;
+	text-align: left;
+	text-indent: -999em;
+}
+
+.jcrop-holder {
+  direction: ltr;
+  text-align: left;
+  
+}
+/* Selection Border */
+.jcrop-vline,
+.jcrop-hline {
+  background: #ffffff url("Jcrop.gif");
+  font-size: 0;
+  position: absolute;
+}
+.jcrop-vline {
+  height: 100%;
+  width: 1px !important;
+}
+.jcrop-vline.right {
+  right: 0;
+}
+.jcrop-hline {
+  height: 1px !important;
+  width: 100%;
+}
+.jcrop-hline.bottom {
+  bottom: 0;
+}
+/* Invisible click targets */
+.jcrop-tracker {
+  height: 100%;
+  width: 100%;
+  /* "turn off" link highlight */
+  -webkit-tap-highlight-color: transparent;
+  /* disable callout, image save panel */
+  -webkit-touch-callout: none;
+  /* disable cut copy paste */
+  -webkit-user-select: none;
+}
+/* Selection Handles */
+.jcrop-handle {
+  background-color: #333333;
+  border: 1px #eeeeee solid;
+  width: 7px;
+  height: 7px;
+  font-size: 1px;
+}
+.jcrop-handle.ord-n {
+  left: 50%;
+  margin-left: -4px;
+  margin-top: -4px;
+  top: 0;
+}
+.jcrop-handle.ord-s {
+  bottom: 0;
+  left: 50%;
+  margin-bottom: -4px;
+  margin-left: -4px;
+}
+.jcrop-handle.ord-e {
+  margin-right: -4px;
+  margin-top: -4px;
+  right: 0;
+  top: 50%;
+}
+.jcrop-handle.ord-w {
+  left: 0;
+  margin-left: -4px;
+  margin-top: -4px;
+  top: 50%;
+}
+.jcrop-handle.ord-nw {
+  left: 0;
+  margin-left: -4px;
+  margin-top: -4px;
+  top: 0;
+}
+.jcrop-handle.ord-ne {
+  margin-right: -4px;
+  margin-top: -4px;
+  right: 0;
+  top: 0;
+}
+.jcrop-handle.ord-se {
+  bottom: 0;
+  margin-bottom: -4px;
+  margin-right: -4px;
+  right: 0;
+}
+.jcrop-handle.ord-sw {
+  bottom: 0;
+  left: 0;
+  margin-bottom: -4px;
+  margin-left: -4px;
+}
+/* Dragbars */
+.jcrop-dragbar.ord-n,
+.jcrop-dragbar.ord-s {
+  height: 7px;
+  width: 100%;
+}
+.jcrop-dragbar.ord-e,
+.jcrop-dragbar.ord-w {
+  height: 100%;
+  width: 7px;
+}
+.jcrop-dragbar.ord-n {
+  margin-top: -4px;
+}
+.jcrop-dragbar.ord-s {
+  bottom: 0;
+  margin-bottom: -4px;
+}
+.jcrop-dragbar.ord-e {
+  margin-right: -4px;
+  right: 0;
+}
+.jcrop-dragbar.ord-w {
+  margin-left: -4px;
+}
+/* The "jcrop-light" class/extension */
+.jcrop-light .jcrop-vline,
+.jcrop-light .jcrop-hline {
+  background: #ffffff;
+  filter: alpha(opacity=70) !important;
+  opacity: .70!important;
+}
+.jcrop-light .jcrop-handle {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  background-color: #000000;
+  border-color: #ffffff;
+  border-radius: 3px;
+}
+/* The "jcrop-dark" class/extension */
+.jcrop-dark .jcrop-vline,
+.jcrop-dark .jcrop-hline {
+  background: #000000;
+  filter: alpha(opacity=70) !important;
+  opacity: 0.7 !important;
+}
+.jcrop-dark .jcrop-handle {
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  background-color: #ffffff;
+  border-color: #000000;
+  border-radius: 3px;
+}
+/* Simple macro to turn off the antlines */
+.solid-line .jcrop-vline,
+.solid-line .jcrop-hline {
+  background: #ffffff;
+}
+/* Fix for twitter bootstrap et al. */
+.jcrop-holder img,
+img.jcrop-preview {
+  max-width: none;
+}
+
+
+/* O2 Country Rate box*/
+.rateBox_inter { 
+	width: 364px; float: right; margin: 30px -24px 0 0;
+	.mainContentRates {
+		width: 364px; height: 274px; background: url(../img/bg-tur.png) repeat-x;float: left;}
+
+	.mainContentRates .rateCode {
+		height: 183px;width: 253px;background: #fff;
+		margin: 36px 0 0 45px;overflow: hidden;padding: 5px 12px 11px 8px;
+	}
+
+	.flagImgContainer {margin: 0 0 10px 0;}
+
+	img#flag {margin: 0 0 11px;float: left;}
+
+	.cntryName {float: left;color: #3caae4;font-size: 15px;margin: 14px 0 0 10px;}
+
+	table.intRates {border: solid 1px #cacbcc;width: 258px;margin-bottom: 14px;
+		border-collapse: collapse;}
+
+	tbody {
+	  display: table-row-group;
+	  vertical-align: middle;
+	  border-color: inherit;
+	}
+
+	tr {
+	  display: table-row;
+	  vertical-align: inherit;
+	  border-color: inherit;
+	}
+
+	table.intRates th {
+	  font-size: 12px;
+	  width: 33%;
+	  text-align: center;
+	  font-weight: normal;
+	  padding: 4px;
+	}
+
+	table.intRates th span {
+	font-size: 10px;
+	}
+
+	.rateCode p {
+		font-size: 11px;
+		padding: 0;
+		margin: 0;
+		&.rates_bottom {
+			width: 60%;
+			float: left;
+			margin-top: 0 !important;
+			line-height: 17px;
+		}
+	}
+
+	.mainContentRates a {
+		float: right;
+		margin-right: 1px;
+		margin-top: 1px;
+		background: url(../img/button_blue.gif) no-repeat right top;
+		span {
+			font-size: 13px;
+			background: url(../img/button_blue.gif) no-repeat left top;
+		}
+	}
+
+	.mainContentRates a span {
+		display: block;
+		height: 30px;
+		line-height: 30px;
+		padding: 0 0 0 8px;
+		position: relative;
+		z-index: 3001;
+		white-space: nowrap;
+		color: #fff;
+	}
+
+	table.intRates td {
+	  background: #cde6f5;
+	  text-align: center;
+	  font-size: 12px;
+	  color: #3caae4;
+	  font-weight: bold;
+	  padding: 4px;
+	}
+
+	span.topBorder, span.bottomBorder {
+	  width: 300px;
+	  height: 10px;
+	  display: block;
+	  float: left;
+	}
+
+	.mainContentRates a {
+		float: right;
+		margin-right: 1px;
+		margin-top: 1px;
+		background: url(../img/button_blue.gif) no-repeat right top;
+		text-decoration: none;
+		color: #FFFFFF;
+		display: block;
+		height: 30px;
+		padding: 0 8px 0 0;
+		font-weight: bold;
+	}
+
+}
+
+button, 
+input, 
+select, 
+textarea { 
+.sans-serif;
+color : @darkgrey; }
+
+/* 2. HEADINGS (320 and Up typography defaults)*/
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+.sans-serif; font-weight: bold; }
+
+h1 { 
+margin-bottom : @baseline / 2.5;
+.font-size(30);
+line-height : 1; }
+
+h2 { 
+margin-bottom : @baseline / 2;
+.font-size(24);
+line-height : 1; }
+
+h3 { 
+margin-bottom : @baseline / 1.5;
+.font-size(22);
+line-height : 1.1; }
+
+h4 { 
+margin-bottom : @baseline / 1.5;
+.font-size(14);
+line-height : 1.25; }
+
+h5 { 
+margin-bottom : @baseline;
+.font-size(12);  }
+
+h6 { 
+.font-size(10); }
+
+/* 3. TYPOGRAPHY (320 and Up typography defaults)*/
+
+p, ol, ul, dl, address { 
+margin-bottom : @baseline; 
+.font-size(13); line-height: 1.6em; }
+
+p { text-align : left; }
+
+ul, 
+ol {
+padding : 0 0 0 24px; }
+
+li ul, 
+li ol { 
+margin : 0; }
+
+dl, 
+dd { 
+margin-bottom : @baseline;  }
+
+dt { 
+font-weight : 300; }
+
+blockquote  { 
+margin : 0 0 @baseline -24px; 
+padding-left : 24px; 
+border-left : 1px solid @lightgrey;
+font-style : italic; }
+
+blockquote:before, 
+blockquote:after, 
+q:before, 
+q:after {
+content : '';
+content : none; }
+
+abbr[title] { 
+border-bottom : 1px dotted; 
+cursor : help; }
+
+b, strong { 
+font-weight : bold; }
+
+dfn { 
+font-style : italic; }
+
+hr { 
+display : block; 
+margin : 1em 0; 
+padding : 0;
+height : 1px; 
+border : 0; 
+border-top : 1px solid #003f6d; }
+
+ins { 
+background-color : lighten(@basecol, 20%); 
+color : @black; 
+text-decoration : none; }
+
+mark { 
+background-color : lighten(@basecol, 20%); 
+color : @black; 
+font-style : italic; 
+font-weight : bold; }
+
+pre, 
+code, 
+kbd, 
+samp { 
+.monospace;
+.font-size(14);
+line-height : @baseline; }
+
+pre { 
+white-space : pre; 
+white-space : pre-wrap; 
+word-wrap : break-word; }
+
+q { 
+quotes : none; }
+
+q:before, 
+q:after { 
+content : ''; 
+content : none; }
+
+small { 
+.font-size(14); }
+
+sub, sup { 
+font-size:.9em;
+line-height : 0; 
+position : relative; 
+vertical-align : baseline; }
+
+sup { 
+top : -.35em; }
+
+sub { 
+bottom : -.25em; }
+
+
+/* 4.LINKS*/
+
+a { 
+	color : @linkcol; outline: none !important;
+	-webkit-tap-highlight-color: rgba(0,0,0,0); 
+	&:visited { 
+	color : @linkcolvisited; }
+	
+	&:hover { 
+	color : @linkcolhover; }
+	
+	&:focus { 
+	color : @linkcolfocus; }
+	
+	&:hover, 
+	&:active { 
+	outline : 0; }
+}
+
+/* 5.FIGURES & IMAGES*/
+
+figure {
+	margin-bottom : @baseline;
+	img, object, embed {
+	margin-bottom : @baseline / 2;
+	max-width : 100%; }
+}
+
+figcaption {
+display : block;
+font-weight : 300; }
+
+img {
+border : 0; }
+
+svg:not(:root) {
+overflow : hidden; }
+
+/* 6.TABLES*/
+
+table { 
+border-collapse : collapse;
+border-spacing : 0;
+margin-bottom : @baseline; 
+width : 100%;
+.font-size(14); }
+
+th, td, caption { 
+padding : @baseline / 8 10px @baseline / 8 5px; }
+
+tfoot { 
+font-style : italic; }
+
+caption { 
+background-color : transparent; }
+
+tbody tr:nth-child(odd) td {
+background-color : lighten(@basecol, 20%); }
+
+/* 7.FORMS*/
+
+form { 
+margin : 0; }
+
+fieldset { 
+margin-bottom : @baseline/3; 
+padding : 0; 
+border-width : 0; }
+
+legend { 
+*margin-left : -7px; 
+padding : 0; 
+border-width : 0; }
+
+label { 
+font-weight : 300;
+cursor : pointer; vertical-align: baseline; }
+
+label, button, 
+input, 
+select, 
+textarea { 
+.font-size(12);
+margin : 0; 
+vertical-align : baseline; 
+*vertical-align : middle; }
+
+button, input { 
+line-height : normal; 
+*overflow : visible; }
+
+button, 
+input[type='button'], 
+input[type='reset'], 
+input[type='submit'] { 
+cursor : pointer; }
+
+input[type='checkbox'], 
+input[type='radio'] { 
+box-sizing : border-box; }
+
+input[type='search'] { 
+box-sizing : content-box; }
+
+textarea { 
+overflow : auto; 
+vertical-align : top; }
+
+input.red { color: @red; }
+
+select { width: 150px; }
+
+
+/* 8 BANNER */
+
+
+/* 9 NAVIGATION */ 	
+
+/* Browser Resets */
+.flex-container a:active,
+.flexslider a:active,
+.flex-container a:focus,
+.flexslider a:focus  {outline: none;}
+.slides,
+.flex-control-nav,
+.flex-direction-nav {margin: 0; padding: 0; list-style: none;} 
+
+/* FlexSlider Necessary Styles
+*********************************/ 
+.flexslider {margin: 0; padding: 0;}
+.flexslider .slides > li {display: none; -webkit-backface-visibility: hidden;} /* Hide the slides before the JS is loaded. Avoids image jumping */
+.flexslider .slides img {width: 100%; display: block;}
+.flex-pauseplay span {text-transform: capitalize;}
+
+/* Clearfix for the .slides element */
+.slides:after {content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;} 
+html[xmlns] .slides {display: block;} 
+* html .slides {height: 1%;}
+
+/* No JavaScript Fallback */
+/* If you are not using another script, such as Modernizr, make sure you
+ * include js that eliminates this class on page load */
+.no-js .slides > li:first-child {display: block;}
+
+
+/* 15 VENDOR-SPECIFIC */
+
+html { 
+-webkit-overflow-scrolling : touch; 
+-webkit-tap-highlight-color : lighten(@basecol, 20%); 
+-webkit-text-size-adjust : 100%; 
+-ms-text-size-adjust : 100%; }
+
+::-webkit-selection { 
+background : @lightergrey; 
+color : rgb(250,250,250); 
+text-shadow : none; }
+
+::-moz-selection { 
+background : @basecol; 
+color : @compcol; 
+text-shadow : none; }
+
+::selection { 
+background : @basecol; 
+color : @compcol; 
+text-shadow : none; }
+
+button, 
+input[type='button'], 
+input[type='reset'], 
+input[type='submit'] { 
+-webkit-appearance : button; }
+
+input::-webkit-input-placeholder, input:-moz-placeholder { 
+.font-size(12) !important; text-align: center !important; }
+
+.lt-ie9 img,
+.iem7 img { 
+-ms-interpolation-mode : bicubic; }
+
+input[type='checkbox'], 
+input[type='radio'] { 
+box-sizing : border-box; }
+
+input[type='search'] { 
+-webkit-box-sizing : content-box;
+-moz-box-sizing : content-box; }
+
+button::-moz-focus-inner, 
+input::-moz-focus-inner { 
+padding : 0;
+border : 0; }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Non-semantic helper classes */
+.clr{.clear;}
+.fl { .float(left) }
+.fr { .float(right) }
+.hide, .overlay { display : none; }
+
+.ir { display : block; 
+overflow : hidden; 
+background-repeat : no-repeat; 
+text-align : left; 
+text-indent : -999em; 
+direction : ltr; }
+
+.ir br { 
+display : none; }
+
+.hidden { visibility: hidden; }
+
+.visuallyhidden { 
+position : absolute;
+margin : -1px;
+padding : 0;
+height  : 1px;
+width : 1px;
+overflow : hidden;
+border : 0; 
+clip : rect(0 0 0 0); }
+
+.visuallyhidden.focusable:active, 
+.visuallyhidden.focusable:focus { 
+position: static;
+margin : 0; 
+height : auto; 
+width : auto;
+overflow: visible; 
+clip : auto; }
+
+.invisible { 
+visibility : hidden; }
+
+.modal { outline: none !important; }
+
+/* 16 MODERNIZR*/
+
+/* 17 TEMPLATE SPECIFICS */
+
+/* 18 MEDIA QUERIES*/
+
+
+/* 18 MEDIA QUERIES*/
+@media only screen and (min-width: 959px) {
+	
+	
+}
+
+/* Mobile */
+@media only screen and (min-device-width : 320px) and (max-device-width: 480) {
+
+}
+
+
+
+
+@media only screen and (max-width: 640px) {
+
+
+		
+	
+}
+
+/* Tablet  */
+@media only screen and (min-width: 641px) and (max-width: 960px) {
+	
+
+}
+
+@media only screen and (min-width: 641px) and (max-width: 750px) {
+	
+
+
+}
+
+/* 2x
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5){} 
+only screen and (-o-min-device-pixel-ratio : 3/2) breaks CSS compressor -> dont use for now (http:/*yuilibrary.com/projects/yuicompressor/ticket/2528134)
+@media only screen and (-o-min-device-pixel-ratio: 3/2){} 
+@media only screen and (min-device-pixel-ratio: 1.5) {}
+*/
+
+
+/* DNAGER ZONE!!! - IE on the loose */
+.lt-ie9 .full {
+
+}
+.lt-ie8 .full {
+	
+}
+.no-js, .lt-ie7 { 
+	#container { background: none !important; }
+	.main, footer { display: none !important; visibility: hidden !important; }
+	#jsMsg, #supportedMsg { width: 80%; margin: 0 auto; padding: 50px 0 20px; text-align: center; }
+}
+.no-js #jsMsg { display:block !important; }
+.lt-ie7 #supportedMsg { display:block !important; }

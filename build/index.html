@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7]><html class="no-js iem7" xmlns="http://www.w3.org/1999/xhtml"><![endif]-->
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en" xmlns="http://www.w3.org/1999/xhtml"> <![endif]-->
+<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8 ie7" lang="en" xmlns="http://www.w3.org/1999/xhtml"><![endif]-->
+<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9 ie8" lang="en" xmlns="http://www.w3.org/1999/xhtml"><![endif]-->
+<!--[if (IE 9)&!(IEMobile)]><html class="no-js ie" lang="en" xmlns="http://www.w3.org/1999/xhtml"><![endif]-->
+<!--[if (gt IE 9)|(gt IEMobile 7)]><!--> <html class="no-js" lang="en" xmlns="http://www.w3.org/1999/xhtml"><!--<![endif]-->
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>O2 eCard</title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+
+		<meta property="og:url" content="http://localhost.dev/">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="02 eCard">
+		<meta property="og:description" content="Turkish Mother's day eCard">
+		<meta property="og:image" content="">
+		<meta property="og:site_name" content="02 eCard">
+
+		<link rel="stylesheet" href="css/normalize.min.css">
+		<link rel="stylesheet" href="css/style.css">
+		<script src="js/vendor/modernizr-2.6.2.min.js"></script>
+	</head>
+	<body>
+		<!--[if lt IE 7]>
+			<p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+		<![endif]-->
+	
+	<div id="container">
+		<div id="wrapper">
+			<header role="banner">
+				<h1 class="logo"><a href="" title="o2"><img src="img/logo.png" alt=""></a></h1>
+				<div id="hero">
+					<h1><img src="img/headline.png" alt="Anneler G&#252;n&#252;n&#252;z Kutlu Olsun"></h1>
+					<img src="img/duck.png" alt="" class="duck">
+
+					<div class="rateBox_inter">
+						<span class="toBorder"></span>
+						<div class="mainContentRates">
+							<div class="rateCode">
+								<div class="clearBoth"> </div>
+								<div class="flagImgContainer"> <img id="flag" class="flagImg" src="http://static.o2.co.uk/assets2/IntFav/flag/tr.png" style=""> </div>
+								<div id="countryName" class="cntryName">Turkey</div>
+								<table id="rates" class="intRates">
+									<tbody>
+										<tr>
+											<th>Landlines<br>
+												<span>per min</span>
+											</th>
+											<th>Mobiles<br>
+												<span>per min</span>
+											</th>
+											<th>Texts<br>
+												<span>per message</span>
+											</th>
+										</tr>
+										<tr>
+											<td id="landlineRate" width="33%">2p</td>
+											<td id="mobileRate" width="33%">10p</td>
+											<td id="textRate" width="33%">10p</td>
+										</tr>
+									</tbody>
+								</table>
+								<p class="rates_bottom">Prices are for calls and<br> texts made from the UK</p>
+								<a target="_blank" href="http://freesim.o2.co.uk/jYCHx76R"><span>Order Now</span></a>
+							</div>
+						</div>
+						<span class="bottomorder"></span> 
+					</div>
+				</div>
+			  </header>
+
+			  <div id="main">
+				<header id="stepsNav">
+					<nav>
+						<ul>
+							<li class="active"><a href="#/step-1">Step 1</a></li>
+							<li><a href="#/step-2">Step 2</a></li>
+							<li><a href="#/step-3">Step 3</a></li>
+						</ul>
+					</nav>
+				</header>
+				<form class="stepContainer" method="POST" enctype="multipart/form-data">
+					<div id="step-1" class="step">
+						<div class="inner">
+							<h2 class="heading">STEP 1: Select an eCard</h2>
+							<div class="ecardContainer">
+								<div id="ecardOptions" class="flexslider">
+									<ul class="slides">
+										<li><img src="img/ecard-01-thumb.jpg" alt=""></li>
+										<li><img src="img/ecard-02-thumb.jpg" alt=""></li>
+									</ul>
+								</div>
+								<div id="ecardSlider" class="flexslider cardPreview">
+									<ul class="slides">
+										<li><img src="img/ecard-01.jpg" data-placeholder-height="189" data-placeholder-width="189" data-placeholder-x="295" data-placeholder-y="361" alt=""></li>
+										<li><img src="img/ecard-02.jpg" data-placeholder-height="204" data-placeholder-width="204" data-placeholder-x="295" data-placeholder-y="341" alt=""></li>
+									</ul>
+								</div>
+								<a href="#/step-2" class="btn">Next</a>		
+							</div>
+						</div>
+					</div>
+
+					<div id="step-2" class="step">
+						<div class="inner">
+							<h2 class="heading">STEP 2: Personalise your eCard</h2>
+							<p>
+								<input id="imgUpload" type="file" name="imgUpload">
+								<!-- <button class="uploadImg">Upload Image..</button> -->
+								<div id="progress" class="progress progress-success progress-striped">
+							        <div class="bar"></div>
+							    </div>
+							</p>
+
+							<p id="uploaded">
+								<img src="img/uploadedImg.jpg" id="userImg" alt="" />
+							</p>
+
+							<div class="cardPreview">
+								<div class="wrap">
+									<img src="" class="usereCard" /> 
+									<div id="preview-pane">
+										<div class="preview-container">
+											<img src="img/uploadedImg.jpg" class="jcrop-preview" alt="Preview" />
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<a href="#/step-3" class="btn">Next</a>
+						</div>
+					</div>
+
+					<div id="step3" class="step">
+						<div class="inner">
+							<h2 class="heading">STEP 3: Share your eCard</h2>
+							<p id="sendTo">
+								<label>To:</label><br>
+								<input type="text"  id="address" value=""><br>
+							</p>
+							<div class="cardPreview">
+								<img src="./img/ecard-02.jpg" class="usereCard" />
+							</div>
+
+							<button class="send btn">Send</button>
+						</div> <!-- end inner -->
+					</div> <!-- end of step 3 -->
+
+						
+				 </form>  <!-- end of slideContainer -->
+			 </div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		window.O2 = window.O2 || {};
+		O2.config = O2.config || { 
+			baseUrl: '',
+			assetUrl: '',
+			currentUrl: ''
+		};
+	</script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+	<script src="js/plugins.js"></script>
+	<script src="js/main.js"></script>
+	  
+	</body>
+</html>
